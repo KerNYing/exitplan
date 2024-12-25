@@ -2,13 +2,16 @@
 const express = require("express");
 const http = require("http");
 const { Server } = require("socket.io");
+const router = require("./routes/generalRoutes")
 
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
 // 정적 파일 제공 (public 폴더)
-app.use(express.static("public"));
+app.use(express.static("./public"));
+
+app.use(router);
 
 // 클라이언트와 Socket.IO 통신
 io.on("connection", (socket) => {

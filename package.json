@@ -2,8 +2,9 @@
   "name": "exitplan",
   "version": "1.0.0",
   "description": "exitplan game",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "npm test"
   },
   "repository": {
