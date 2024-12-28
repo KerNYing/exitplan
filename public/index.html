@@ -7,19 +7,23 @@
     <title>Exit Plan</title>
     
     <!-- 최상단에 위치해야함 -->
+    <link rel="stylesheet" href="./style.css"></style>
     <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
-    
+
     <!-- js file import area -->
     <script src="./script.js" defer></script>
   </head>
   <body>
-    <h1>Socket.IO 실시간 통신 테스트</h1>
-    <input id="messageInput" type="text" placeholder="메시지를 입력하세요" />
-    <button onclick="sendMessage()">전송</button>
+    <h1>채팅</h1>
+    
 
     <h2>메시지 로그</h2>
-    <ul id="messageLog"></ul>
-
-    
+    <div class="chatArea">
+      <div id="messageLog"></div>
+      <div id="messageSendBtn">
+        <input id="messageInput" type="text" placeholder="메시지를 입력하세요" />
+        <button id="sendBtn" onclick="sendMessage()">전송</button>
+      </div>
+    </div>
   </body>
 </html>

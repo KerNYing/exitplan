@@ -19,10 +19,13 @@ io.on("connection", (socket) => {
 
   // 클라이언트로부터 메시지 수신
   socket.on("send_message", (data) => {
-    console.log(`유저 메시지: ${data}`);
+    console.log(`유저 메시지: ${data.chat}`);
     // 모든 클라이언트에 메시지 브로드캐스트
     io.emit("receive_message", data);
   });
+
+  // 클라이언트에게 socket.id 전송
+  socket.emit("your_socket_id", socket.id);
 
   // 유저 연결 해제
   socket.on("disconnect", () => {
