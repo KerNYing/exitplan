@@ -31,7 +31,7 @@ io.on("connection", (socket) => {
 });
 
 // 서버 실행
-const PORT = 3000;
+const PORT = 80;
 server.listen(PORT, () => {
   console.log(`서버가 http://localhost:${PORT} 에서 실행 중입니다.`);
 });
