@@ -28,6 +28,19 @@
     flex: 1;
 }
 
-#sendBtn {
+div {
+    padding: 1px;
+}
 
+/* 기본공간에 대한 design */
+.area_1 {
+    border: solid 3px black;
+    border-radius: 5px;
+    padding: 3px;
+    text-align: center;
+}
+
+.title_1 {
+    font-size: 50px;
+    font-weight: bold;
 }

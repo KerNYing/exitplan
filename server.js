@@ -11,7 +11,7 @@ const io = new Server(server);
 // 정적 파일 제공 (public 폴더)
 app.use(express.static("./public"));
 
-app.use(router);
+app.use('/', router);
 
 // 클라이언트와 Socket.IO 통신
 io.on("connection", (socket) => {
