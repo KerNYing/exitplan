@@ -6,6 +6,8 @@
     
     <!-- 최상단에 위치해야함 -->
     <link rel="stylesheet" href="./game.css"></style>
+    <script src="./game.js" defer></script>
+    <script src="./game_logic.js" defer></script>
     <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
 
     <title>Exit plan</title>
@@ -34,14 +36,45 @@
             </div>
         </div>
         <div class="gameArea">game area
-            <!-- <canvas id="gameCanvas" width="700" height="700"></canvas> -->
+            <!-- <canvas id="gameCanvas" width="490" height="490"></canvas> -->
         </div>
         <div class="gameInfoArea">
-            <div class="elem" id="gameInfo">game info</div>
-            <div class="chatArea elem">chat area</div>
+            <div class="elem" id="gameInfo">game info
+                <div class="turnInfoArea elem">
+                    <div>
+                        Turn
+                    </div>
+                    <div>
+                        Color noted
+                    </div>
+                </div>
+                <div class="gameInfoArea elem">
+                    <div>
+                        Score
+                    </div>
+                    <div>
+                        0 : 0
+                    </div>
+                </div>
+                <div class="remainTime elem">
+                    <div>
+                        Remain Time
+                    </div>
+                    <div>
+                        00 : 00
+                    </div>
+                </div>
+            </div>
+            <div class="chatArea elem">
+                chat area
+                <div class="elem" id="chatLog">chat log</div>
+                <div class="elem" id="chatInput">
+                    chat
+                    <input type="text" placeholder="chat something">
+                    <button>chat!</button>
+                </div>
+            </div>
         </div>
     </div>
-    
-    <script src="game.js"></script>
 </body>
 </html>
