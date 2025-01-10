@@ -1,25 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <title>Exit Plan</title>
-    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exit plan</title>
+
     <!-- 최상단에 위치해야함 -->
+    <link rel="stylesheet" href="./style.css"></style>
     <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
-    
+
     <!-- js file import area -->
     <script src="./script.js" defer></script>
-  </head>
-  <body>
-    <h1>Socket.IO 실시간 통신 테스트</h1>
-    <input id="messageInput" type="text" placeholder="메시지를 입력하세요" />
-    <button onclick="sendMessage()">전송</button>
-
-    <h2>메시지 로그</h2>
-    <ul id="messageLog"></ul>
-
+</head>
+<body>
+    <div class="title_1">Exit plan</div>
+    <div class="area_1">
+        <div>
+            <div>Sign In</div>
+            <div>ID <input type="text"></div>
+            
+            <div>PW <input type="password"></div>
+            
+            <div>
+                <a href="/game" id="btn_general_signin">Sign In</a>
+            </div>
     
-  </body>
+        </div>
+        <div>
+            <button>Google Sign In</button>
+        </div>
+        <div>
+            <button>KaKao Sign In</button>
+        </div>
+    <div>
+        <a href="/signup">Sign Up</a>
+    </div>
+    </div>
+</body>
 </html>

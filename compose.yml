@@ -1,0 +1,10 @@
+name: exitplan
+
+services:
+  node:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: echo "exitplan is running..."
+    ports:
+      - "80:80"

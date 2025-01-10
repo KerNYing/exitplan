@@ -1,5 +1,5 @@
 # 베이스 이미지로 Node.js 사용
-FROM node:20
+FROM node:22
 
 # 애플리케이션 코드가 위치할 디렉토리 생성
 WORKDIR /usr/src/app
