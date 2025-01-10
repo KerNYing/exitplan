@@ -8,6 +8,12 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
+// configuration
+// config DB
+const mongoose = require("mongoose");
+const { MongoClient } = require("mongodb");
+const dbschemas = require("./db/dbSchemas")
+
 // 정적 파일 제공 (public 폴더)
 app.use(express.static("./public"));
 
@@ -35,3 +41,19 @@ const PORT = 80;
 server.listen(PORT, () => {
   console.log(`서버가 http://localhost:${PORT} 에서 실행 중입니다.`);
 });
+
+const uri = "mongodb://localhost:27017/exitplanDB";
+const client = new MongoClient(uri);
+
+async function run() {
+  try {
+    const database = client.db('exitplanDB');
+  } finally {
+    // Ensures that the client will close when you finish/error
+    // await client.close();
+    mongoose.connect(uri, { useNewUrlParser: true });
+    console.log("seccessfully connected!!");
+  }
+}
+
+run();
