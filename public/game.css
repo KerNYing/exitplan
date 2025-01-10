@@ -1,0 +1,66 @@
+.mainArea {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 800px;
+}
+
+#opponentUserInfo {
+    flex-grow: 1;
+}
+
+#myUserInfo {
+    flex-grow: 1;
+}
+
+.userInfoArea {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.gameArea {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 4;
+    justify-content: center;
+
+    border: solid 1px black;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px
+}
+
+.gameInfoArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.chatArea {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 5;
+}
+
+#gameInfo {
+    flex-grow: 1;
+}
+
+#chatLog {
+    flex-grow: 8;
+}
+
+#chatInput {
+    flex-grow: 1;
+}
+
+.elem {
+    border: solid 1px black;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px
+}
+

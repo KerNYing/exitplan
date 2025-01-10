@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Canvas Game</title>
+    
+    <!-- 최상단에 위치해야함 -->
+    <link rel="stylesheet" href="./game.css"></style>
+    <script src="./game.js" defer></script>
+    <script src="./game_logic.js" defer></script>
+    <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
+
+    <title>Exit plan</title>
     <style>
         canvas {
             border: 1px solid black; /* 테두리로 캔버스 확인하기 */
@@ -11,7 +18,63 @@
     </style>
 </head>
 <body>
-    <canvas id="gameCanvas" width="700" height="700"></canvas>
-    <script src="game.js"></script>
+    <div>Exit plan</div>
+    <div class="mainArea">
+        <div class="userInfoArea">
+            <div class="elem" id="opponentUserInfo">
+                opponent info
+                <div class="elem" id="opUserName">user name</div>
+                <div class="elem" id="opUserRank">user rank</div>
+                <div class="elem" id="opUserRecord">user record</div>
+                <div class="elem" id="addUser">add user<button>add user</button></div>
+            </div>
+            <div class="elem" id="myUserInfo">
+                my info
+                <div class="elem" id="myUserName">user name</div>
+                <div class="elem" id="myUserRank">user rank</div>
+                <div class="elem" id="myUserRecord">user record</div>
+            </div>
+        </div>
+        <div class="gameArea">game area
+            <!-- <canvas id="gameCanvas" width="490" height="490"></canvas> -->
+        </div>
+        <div class="gameInfoArea">
+            <div class="elem" id="gameInfo">game info
+                <div class="turnInfoArea elem">
+                    <div>
+                        Turn
+                    </div>
+                    <div>
+                        Color noted
+                    </div>
+                </div>
+                <div class="gameInfoArea elem">
+                    <div>
+                        Score
+                    </div>
+                    <div>
+                        0 : 0
+                    </div>
+                </div>
+                <div class="remainTime elem">
+                    <div>
+                        Remain Time
+                    </div>
+                    <div>
+                        00 : 00
+                    </div>
+                </div>
+            </div>
+            <div class="chatArea elem">
+                chat area
+                <div class="elem" id="chatLog">chat log</div>
+                <div class="elem" id="chatInput">
+                    chat
+                    <input type="text" placeholder="chat something">
+                    <button>chat!</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
