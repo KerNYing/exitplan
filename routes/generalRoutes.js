@@ -9,5 +9,6 @@ router.get("/", generalController.home);
 router.get("/signup", generalController.signup);
 router.get("/game", generalController.game);
 router.get("/opUser", userController.opUser);
+router.get("/queue", generalController.queue);
 
 module.exports = router;

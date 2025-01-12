@@ -12,3 +12,7 @@ exports.game = (req, res) => {
 exports.signup = (req, res) => {
     res.sendFile(path.join(__dirname, '..', './public/signup.html'));
 }
+
+exports.queue = (req, res) => {
+    res.sendFile(path.join(__dirname, '..', './public/queue.html'));
+}

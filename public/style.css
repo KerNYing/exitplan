@@ -71,3 +71,23 @@ div {
     
     text-align: center;
 }
+
+form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+form div {
+    display: flex;
+    flex-direction: row;
+}
+
+form div label, form div input {
+    width: 50%;
+}
+
+button {
+    width: 100%;
+}

@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/KerNYing/exitplan#readme",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
     "mongo": "^0.1.0",
     "mongodb": "^6.12.0",
     "mongoose": "^8.9.4",

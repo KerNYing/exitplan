@@ -5,10 +5,64 @@ const saltRounds = 10;
 // jwt 발행용 library
 const jwt = require("jsonwebtoken");
 // DB 조회필요
-const User = require("../models/userModel");
+const { UserInfo } = require('../db/dbSchemas');
+const { MongoClient } = require("mongodb");
 
-// login login
-const loginUser = async (userId, userPw) => {
+const uri = "mongodb://localhost:27017/exitplanDB";
+const client = new MongoClient(uri);
+
+// signup logic
+const signUpUser = async (userId, userPw, userEmail, userNickname) => {
+  try {
+    await client.connect();
+    console.log("Successfully connected to MongoDB");
+  } catch (error) {
+      console.error("Failed to connect to MongoDB:", error);
+      throw new Error("MongoDB 연결에 실패했습니다.");
+  }
+  
+  console.log("signup service started..");
+  try {
+    const now = new Date(Date.now());
+
+    const hashedPw = await bcrypt.hash(userPw, saltRounds);
+
+    // 각 구성 요소 추출
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0'); // 월은 0부터 시작하므로 +1
+    const day = String(now.getDate()).padStart(2, '0');
+
+    // 원하는 형식으로 조합
+    const formattedDate = `${year}-${month}-${day}`;
+
+    // data 저장
+    console.log(hashedPw);
+    console.log("user creating..");
+    const database = client.db('exitplanDB');
+    const userinfos = database.collection("userinfos");
+    console.log("done");
+    const result = await userinfos.insertOne({
+      id: userId, 
+      pw: hashedPw, 
+      email: userEmail, 
+      nickname: userNickname, 
+      createdAt: formattedDate, 
+      provider: ['local'] 
+    });
+
+    console.log("User created:", result.insertedId);
+    return result;
+  } catch(error) {
+    console.log(error);
+  } finally {
+    console.log("finally code!!");
+  }
+  
+};
+
+
+// login logic
+const signInUser = async (userId, userPw) => {
   // DB에서 user 조회
   // user 존재
     // pw hash 가져올 것
@@ -29,4 +83,4 @@ const loginUser = async (userId, userPw) => {
   
 };
 
-module.exports = { loginUser };
+module.exports = { signUpUser, signInUser };
