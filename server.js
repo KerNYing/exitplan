@@ -14,6 +14,9 @@ const keyPair = require('./config/keypair');
 const generalRouter = require("./routes/generalRoutes");
 const authRouter = require("./routes/authRoutes");
 
+// cookie 관련
+const cookieParser = require('cookie-parser');
+
 // configuration
 // config DB
 const mongoose = require("mongoose");
@@ -22,6 +25,8 @@ const dbschemas = require("./db/dbSchemas")
 
 app.use(express.urlencoded({ extended: true })); // x-www-form-urlencoded 파싱
 app.use(express.json()); // JSON 데이터 파싱
+
+app.use(cookieParser());
 
 // 정적 파일 제공 (public 폴더)
 app.use(express.static("./public"));
