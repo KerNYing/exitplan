@@ -7,12 +7,15 @@ exports.signUp = async (req, res) => {
   console.log("signUp started..");
   try {
     const requestBody = req.body;
-    // console.log(req.body);
-    // console.log("requestBody", requestBody);
+    // singup 결과 반환
     const result = await signUpUser(requestBody.userId, requestBody.userPw, requestBody.userEmail, requestBody.userNickname);
 
-    console.log("signup!");
-    res.redirect('/queue');
+    // /queue page로 이동
+    res.cookie("token", result.token, {
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60,
+    })
+    .redirect('/queue');
   } catch (error) {
     console.log(error);
   }

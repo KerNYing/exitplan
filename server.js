@@ -7,6 +7,9 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
+// key check
+const keyPair = require('./config/keypair');
+
 // router 연결
 const generalRouter = require("./routes/generalRoutes");
 const authRouter = require("./routes/authRoutes");

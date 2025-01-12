@@ -4,6 +4,15 @@ const saltRounds = 10;
 
 // jwt 발행용 library
 const jwt = require("jsonwebtoken");
+const fs = require('fs');
+const path = require('path');
+
+// 키 파일 경로
+const privateKeyPath = path.join(__dirname,'..','/env/private.key');
+const publicKeyPath = path.join(__dirname,'..','/env/public.key');
+const privateKey = fs.readFileSync(privateKeyPath, 'utf8');
+const publicKey  = fs.readFileSync(publicKeyPath, 'utf8');
+
 // DB 조회필요
 const { UserInfo } = require('../db/dbSchemas');
 const { MongoClient } = require("mongodb");
@@ -50,14 +59,14 @@ const signUpUser = async (userId, userPw, userEmail, userNickname) => {
       provider: ['local'] 
     });
 
+    const token = jwt.sign({ id: userId }, privateKey, { algorithm: 'RS256' });
+    result['token'] = token;
+
     console.log("User created:", result.insertedId);
     return result;
   } catch(error) {
     console.log(error);
-  } finally {
-    console.log("finally code!!");
   }
-  
 };
 
 
