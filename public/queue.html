@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="./queue.css">
+
+        <script src="./queue.js" defer></script>
+
+        <title>Sign Up - Exitplan</title>
+    </head>
+    <body>
+        <div>Exit plan</div>
+        <div class="queueArea">
+            <div class="mainArea elem">
+                <!-- game room list board -->
+                <!-- game room 목록 보여줌 -->
+                <div class="gameRoomArea elem" id="gameRoomListBoard">
+                    <div class="gameRoomHeader elem">
+                        <div class="subTitle">
+                            게임목록    
+                        </div>
+                        <div>
+                            방만들기 <button id="createGameRoomBtn">+</button>
+                        </div>
+                    </div>
+                    <div class="elem" id="gameRoomList">
+                        gameRooms
+                        <div>
+                            game room lists
+                        </div>
+                    </div>
+                </div>
+                <!-- creating game room -->
+                <!-- game room 만드는 element --> 
+                <div class="gameRoomArea elem hidden" id="createGameRoomTab">
+                    <div class="gameRoomHeader elem">
+                        <div class="subTitle">
+                            방만들기
+                        </div>
+                        <div>
+                            방만들기 취소<button id="cancelCreateGameRoomBtn">X</button>
+                        </div>
+                    </div>
+                    <div class="elem" id="myGameRoomInfo">
+                        My Game Room Info
+                        <div>
+                            <button>방 생성하기</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="chatLogArea elem">
+                    chat logs
+                    <div class="elem" id="chatLog">chat log</div>
+                    <div class="elem" id="chatInput">
+                        chat
+                        <input type="text" placeholder="chat something">
+                        <button>chat!</button>
+                    </div>
+                </div>
+            </div>
+            <div class="myInfoArea elem">
+                <div class="myInfo elem">
+                    my info
+                    <div class="elem" id="myUserName">user name</div>
+                    <div class="elem" id="myUserRank">user rank</div>
+                    <div class="elem" id="myUserRecord">user record</div>
+                </div>
+                <div class="directMatching elem">
+                    direct matching
+                    <div class="elem" id="directMatchingBtn">
+                        <button>Direct Match!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>

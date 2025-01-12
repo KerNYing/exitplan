@@ -1,0 +1,97 @@
+html {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 95%;
+    width: 95%;
+    margin: auto;
+}
+
+.queueArea {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    height: 100%;
+}
+
+.mainArea {
+    flex-grow: 4;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.gameRoomArea {
+    flex-grow: 2;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.gameRoomHeader {
+    display: flex;
+    flex-direction: row;
+}
+
+.chatLogArea {
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.myInfoArea {
+    flex-grow: 2;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.myInfo {
+    flex-grow: 8;
+}
+
+.directMatching {
+    flex-grow: 2;
+}
+
+.elem {
+    border: solid 1px black;
+    border-radius: 10px;
+    padding: 5px;
+    margin: 5px
+}
+
+#gameRoomList {
+    flex-grow: 1;
+}
+
+#chatLog {
+    flex-grow: 1;
+}
+
+#chatInput {
+
+}
+
+.subTitle {
+    flex-grow: 1;
+}
+
+#gameRoomListBoard.hidden {
+    display: none;
+}
+
+#myGameRoomInfo {
+    flex-grow: 1;
+}
+
+.hidden {
+    flex-grow: 0;
+    display: none;
+}
