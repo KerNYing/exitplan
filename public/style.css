@@ -58,6 +58,16 @@ div {
     font-weight: bold;
 }
 
+.title_2 {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.title_3 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
 .elem {
     border: solid 1px black;
     border-radius: 10px;
@@ -69,6 +79,7 @@ div {
     display: flex;
     flex-direction: column;
     
+    min-width: 540px;
     text-align: center;
 }
 
@@ -84,10 +95,24 @@ form div {
     flex-direction: row;
 }
 
-form div label, form div input {
-    width: 50%;
+form div label {
+    flex: 0 0 240px;
+    text-align: left;
+}
+
+form div input {
+    flex: 1 1;
 }
 
 button {
     width: 100%;
+}
+
+#userPwCheckSentence, #userPwConditionCheckSentence {
+    color: red;
+    font-style: bold;
+}
+
+input {
+    height: 20px;
 }

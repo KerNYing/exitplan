@@ -11,4 +11,6 @@ router.get("/game", generalController.game);
 router.get("/opUser", userController.opUser);
 router.get("/queue", generalController.queue);
 
+router.get("/userinfo/", generalController.userinfo);
+
 module.exports = router;
