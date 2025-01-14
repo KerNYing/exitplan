@@ -18,9 +18,10 @@ const { getUserInfo } = require('../services/userService');
 exports.opUser = (req, res) => {
     // cookie로부터 token (JWT) 추출
     const token = req.cookies.token;
-    console.log(token);
+    console.log("token:", token);
 
     jwt.verify(token, privateKey, async (err, decoded) => {
+        console.log(decoded);
         console.log(decoded.id);
 
         const opUserData = await getUserInfo(decoded.id);
