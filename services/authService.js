@@ -15,15 +15,12 @@ const publicKey  = fs.readFileSync(publicKeyPath, 'utf8');
 
 // DB 조회필요
 const { UserInfo } = require('../db/dbSchemas');
-const { MongoClient } = require("mongodb");
-
-const uri = "mongodb://localhost:27017/exitplanDB";
-const client = new MongoClient(uri);
+const { connectDB, getDB } = require('../config/db');
 
 // signup logic
 const signUpUser = async (userId, userPw, userEmail, userNickname) => {
   try {
-    await client.connect();
+    await connectDB();
     console.log("Successfully connected to MongoDB");
   } catch (error) {
       console.error("Failed to connect to MongoDB:", error);
@@ -47,18 +44,26 @@ const signUpUser = async (userId, userPw, userEmail, userNickname) => {
     // data 저장
     console.log(hashedPw);
     console.log("user creating..");
-    const database = client.db('exitplanDB');
+    // db configuration
+    const database = getDB();
     const userinfos = database.collection("userinfos");
+
     console.log("done");
+
+    // user info insert to db
     const result = await userinfos.insertOne({
       id: userId, 
       pw: hashedPw, 
       email: userEmail, 
       nickname: userNickname, 
       createdAt: formattedDate, 
-      provider: ['local'] 
+      rank: "Bronze",
+      provider: ['local'],
+      record: [0, 0, 0],
+      providerId: "" 
     });
 
+    // userId 와 같이 jwt 생성
     const token = jwt.sign({ id: userId }, privateKey, { algorithm: 'RS256' });
     result['token'] = token;
 
@@ -72,24 +77,40 @@ const signUpUser = async (userId, userPw, userEmail, userNickname) => {
 
 // login logic
 const signInUser = async (userId, userPw) => {
+  // DB연결
+  try {
+    await connectDB();
+    console.log("Successfully connected to MongoDB");
+  } catch (error) {
+    console.error("Failed to :", error);
+  }
   // DB에서 user 조회
   // user 존재
-    // pw hash 가져올 것
+  const database = getDB();
+  const userinfos = database.collection("userinfos");
 
+  const userInfo = await userinfos.findOne({ id: userId })
+  // pw hash 가져올 것
+  const hash = userInfo.pw;
   // user 미존재
   
 
   // password 조회
   // userPw 저장된 hash 비교
-  bcrypt.compare(userPw, hash, function(err, result) {
-    if (result === true) {
-      console.log("correct password!");
-      return { status: true, token, username: userId };
-    }
-    // password 불일치
-    return { status: false, undefined, username: userId};
-  });
+  const isSamePw = await bcrypt.compare(userPw, hash);
+
+  if (isSamePw) {
+     // userId 와 같이 jwt 생성
+    const token = jwt.sign({ id: userId }, privateKey, { algorithm: 'RS256' });
+    const result = { status: 'success', token: token, username: userId, info: userInfo };
   
+    console.log("result: ", result);
+    return result;
+  }
+  else {
+    // password 불일치
+    return { status: false, username: userId};
+  }
 };
 
 module.exports = { signUpUser, signInUser };
