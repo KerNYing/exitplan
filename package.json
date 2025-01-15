@@ -4,6 +4,7 @@
   "description": "exitplan game",
   "main": "server.js",
   "scripts": {
+    "preinstall": "npm i nodemon -g",
     "start": "node server.js",
     "test": "npm test"
   },
