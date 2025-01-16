@@ -3,19 +3,20 @@ version: '3.8'
 
 services:
   nodejs:
-    image: node:16
+    image: node:latest
     container_name: nodejs-server
     working_dir: /usr/src/app
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
     ports:
-      - "80:80"
+      - "8080:8080"
     command: sh -c "npm install && nodemon server.js"
     depends_on:
       - mongodb
     environment:
       - NODE_ENV=development
+      - MONGO_URI=mongodb://mongodb:27017/exitplan
 
   mongodb:
     image: mongo:latest
