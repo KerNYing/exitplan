@@ -2,9 +2,14 @@ const fs = require('fs');
 const crypto = require('crypto');
 const path = require('path');
 
+const { checkAndMakeEnvDir } = require('./checkDir');
+
 // 키 파일 경로
 const privateKeyPath = path.join(__dirname,'..','/env/private.key');
 const publicKeyPath = path.join(__dirname,'..','/env/public.key');
+
+// env dir 존재여부 확인 및 없을 시 생성 함수
+checkAndMakeEnvDir();
 
 // 키 파일 존재 여부 확인 및 생성
 if (!fs.existsSync(privateKeyPath) || !fs.existsSync(publicKeyPath)) {
