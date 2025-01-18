@@ -34,7 +34,7 @@ app.use(express.static("./public"));
 app.use(generalRouter);
 app.use(authRouter);
 
-const uri = "mongodb://localhost:27017/exitplanDB";
+const uri = "mongodb://mongodb:27017/exitplanDB";
 const client = new MongoClient(uri);
 
 async function run() {
