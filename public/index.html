@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exit plan</title>
+    <title>The Genius Game</title>
 
     <!-- 최상단에 위치해야함 -->
+    <!-- font style: roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="./style.css">
     <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
 
@@ -13,10 +18,10 @@
     <script src="./script.js" defer></script>
 </head>
 <body>
-    <div class="title_1">Exit plan</div>
+    <div class="title_1">The Genius Game</div>
     <div class="mainArea elem">
         <div class="elem">
-            <div>Sign In (로그인)</div>
+            <div>Sign In</div><br>
             <form action="/signin" method="POST">
                 <div>
                     <label for="userId">ID (아이디)</label>
@@ -29,15 +34,15 @@
                 
                 <input type="submit" value="Sign In (로그인)">
             </form>
-            <div>
-                <button>Google Sign In (구글로 로그인하기)</button>
+            <div class="elem">
+                <div id="signInWithGoogleBtn"><img src="./img/logo_google.png" height="24px"> 구글로 시작하기 </div>
             </div>
-            <div>
-                <button>KaKao Sign In (카카오로 로그인하기)</button>
+            <div class="elem">
+                <img src="./img/logo_kakao.png" alt="kakao sign in">
             </div>
         </div>
         <div class="elem">
-            <a href="/signup">Sign Up (회원가입)</a>
+            <a href="/signup">Create Account (회원가입)</a>
         </div>
     </div>
 </body>

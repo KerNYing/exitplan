@@ -7,6 +7,9 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
 
+// cors option
+const cors = require('cors');
+
 // key check
 const keyPair = require('./config/keypair');
 
@@ -21,10 +24,18 @@ const cookieParser = require('cookie-parser');
 // config DB
 const mongoose = require("mongoose");
 const { MongoClient } = require("mongodb");
-const dbschemas = require("./db/dbSchemas")
+const dbschemas = require("./db/dbSchemas");
 
-app.use(express.urlencoded({ extended: true })); // x-www-form-urlencoded 파싱
-app.use(express.json()); // JSON 데이터 파싱
+// cors middleware use
+// app.use(cors({
+//   origin: '*',
+//   methods: '*'
+// }));
+// x-www-form-urlencoded 파싱
+app.use(express.urlencoded({ extended: true })); 
+// JSON 데이터 파싱
+app.use(express.json()); 
+
 
 app.use(cookieParser());
 
