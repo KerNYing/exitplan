@@ -11,6 +11,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
+    <!-- material design -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script type="importmap">
+      {
+        "imports": {
+          "@material/web/": "https://esm.run/@material/web/"
+        }
+      }
+    </script>
+    <script type="module">
+      import '@material/web/all.js';
+      import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+  
+      document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+    </script>
+
+    <!-- style css -->
     <link rel="stylesheet" href="./style.css">
     <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
 
@@ -38,7 +55,7 @@
                 <div id="signInWithGoogleBtn"><img src="./img/logo_google.png" height="24px"> 구글로 시작하기 </div>
             </div>
             <div class="elem">
-                <img src="./img/logo_kakao.png" alt="kakao sign in">
+                <img src="./img/logo_kakao.png" alt="kakao sign in" style="height: 32px;">
             </div>
 
             <div id="g_id_onload"
@@ -59,7 +76,7 @@
             </div>
         </div>
         <div class="elem">
-            <a href="/signup">Create Account (회원가입)</a>
+            <md-outlined-button href="/signup">Create Account (회원가입)</md-outlined-button>
         </div>
     </div>
 </body>
