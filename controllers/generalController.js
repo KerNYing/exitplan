@@ -2,8 +2,8 @@ const path = require('path');
 const { isUserIdRegistered } = require('../services/userService');
 
 exports.home = (req, res) => {
-    res.sendFile(path.join(__dirname, '..', './public/main.html'));
     console.log("main입니다!");
+    res.sendFile(path.join(__dirname, '..', './dist/index.html'));
 };
 
 exports.game = (req, res) => {
