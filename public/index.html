@@ -24,8 +24,9 @@
 </head>
 <body>
     <div class="title_1">The Genius Game</div>
-    <div class="mainArea elem">
-        <div class="elem">
+    <div class="mainArea infoElem">
+        <md-elevation></md-elevation>
+        <div>
             <div>Sign In</div><br>
             <form action="/signin" method="POST">
                 <div>
@@ -68,8 +69,8 @@
                 data-logo_alignment="left">
             </div>
         </div> 
-        <div class="elem">
-            <md-filled-tonal-button href="/signup">Create Account (회원가입)</md-filled-tonal-button>
+        <div>
+            <md-filled-tonal-button id="signInBtn" href="/signup">Create Account (회원가입)</md-filled-tonal-button>
         </div>
     </div>
 </body>
