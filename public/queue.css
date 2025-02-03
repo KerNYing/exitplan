@@ -20,6 +20,7 @@ body {
 }
 
 .mainArea {
+    height: 100%;
     flex-grow: 4;
 
     display: flex;
@@ -28,6 +29,7 @@ body {
 
 .gameRoomArea {
     flex-grow: 2;
+    height: 450px;
 
     display: flex;
     flex-direction: column;
@@ -38,15 +40,22 @@ body {
     flex-direction: row;
 }
 
+.gameRoomHeader {
+    align-items: center;
+}
+.createRoomBtnArea {
+    display: flex;
+}
 .chatLogArea {
-    flex-grow: 1;
+    flex-grow: 2;
 
     display: flex;
     flex-direction: column;
 }
 
 .myInfoArea {
-    flex-grow: 2;
+    width: 300px;
+    flex-grow: 2 0 300px;
 
     display: flex;
     flex-direction: column;
@@ -81,6 +90,7 @@ body {
 
 .subTitle {
     flex-grow: 1;
+    text-align: left;
 }
 
 #gameRoomListBoard.hidden {
@@ -94,4 +104,72 @@ body {
 .hidden {
     flex-grow: 0;
     display: none;
+}
+
+.clickableElem {
+    position: relative;
+    border-radius: 10px;
+    height: max-content;
+    width: auto;
+    padding: 10px;
+    margin: 10px;
+
+    --md-elevation-level: 1;
+  }
+
+.clickableElem:hover {
+    transition-duration: 250ms;
+    transition-timing-function: ease-in-out;
+
+    --md-elevation-level: 3;
+}
+
+.infoElem {
+    position: relative;
+    border-radius: 10px;
+    height: max-content;
+    width: auto;
+    padding: 10px;
+    margin: 10px;
+
+    --md-elevation-level: 1;
+}
+
+.elem div {
+    align-items: center;
+}
+#chatInput {
+    display: flex;
+}
+#mainChatInput {
+    flex-grow: 1;
+}
+.gameRoomInfo {
+    display: flex;
+    flex-direction: column;
+}
+#gameSelector {
+    display: flex;
+    flex-direction: row;
+}
+#gameRoomTitle {
+    display: flex;
+    flex-direction: row;
+}
+#gameMode {
+    display: flex;
+    flex-direction: row;
+}
+.label {
+    width: 120px;
+    text-align: left;
+}
+#directMatchingBtn {
+    display: flex;
+    flex-direction: column;
+
+
+}
+#directMatchBtn {
+    width: 100%;
 }

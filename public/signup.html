@@ -4,47 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    
+            
+    <!-- favicon -->
+    <link rel="icon" href="./img/favicon/favicon_thegeniusgame.png">
+
     <script src="./signup.js" defer></script>
 
-    <title>Sign Up</title>
+    <title>The Genius Game</title>
 </head>
 <body>
-    <div class="mainArea elem">
-        <div class="elem">
-            <div class="title_3">Sign Up (회원가입)</div>
-            <div style="text-align: right"><a style="color:red">* </a>는 필수입력</div>
-            <form action="/signupReq" method="POST">
-                <div>
-                    <label for="userId"><a style="color:red">* </a>ID (아이디)</label>
-                    <input type="text" id="userId" name="userId" placeholder="ID(아이디)를 입력하세요">
-                </div>
-                <div></div>
-                <button type="button" id="idConflictCheckBtn" style="width: 100%">ID(아이디) 중복확인</button>
-                <div id="userIdCheckSentence"></div>
-                <div>
-                    <label for="userPw"><a style="color:red">* </a>PW (비밀번호)</label>
-                    <input type="password" id="userPw" name="userPw" placeholder="PW(비밀번호)를 입력하세요"><br>
-                </div>
-                <b>비밀번호는 8~14자, 알파벳 소문자, 대문자, 숫자, 특수기호를 포함해야 합니다.</b>
-                <div id="userPwConditionCheckSentence"></div>
-                <div>
-                    <label for="userPwCheck"><a style="color:red">* </a>PW (비밀번호) 재입력</label>
-                    <input type="password" id="userPwCheck" name="userPwCheck" placeholder="PW(비밀번호)를 재입력하세요">
-                </div>
-                <div id="userPwCheckSentence"></div>
-                <div>
-                    <label for="userEmail"><a style="color:red">* </a>Email (이메일) 입력</label>
-                    <input type="text" id="userEmail" name="userEmail" placeholder="Email(이메일)을 입력하세요">
-                </div>
-                <div></div>
-                <div>
-                    <label for="userNickname">닉네임 설정 (선택)</label>
-                    <input type="text" id="userNickname" name="userNickname" placeholder="닉네임을 입력하세요">
-                </div>
-                <button type="submit" id="signUpBtn" disabled>Sign Up (회원가입)</button>
-            </form>
-        </div>
+    <div class="mainArea infoElem">
+        <md-elevation></md-elevation>
+        <div class="title_3">Sign Up (회원가입)</div>
+        <div style="text-align: right"><a style="color:red">* </a>는 필수입력</div>
+        <form action="/signupReq" method="POST">
+            <div>
+                <label for="userId"><a style="color:red">* </a>ID (아이디)</label>
+                <md-outlined-text-field type="text" id="userId" name="userId" placeholder="ID(아이디)를 입력하세요"></md-outlined-text-field>
+            </div>
+            <div></div>
+            <md-filled-button type="button" id="idConflictCheckBtn" style="width: 100%">ID(아이디) 중복확인</md-filled-button>
+            <div id="userIdCheckSentence"></div>
+            <!-- 비밀번호는 8~14자, 최대 14자 적용 -->
+            <div>
+                <label for="userPw"><a style="color:red">* </a>PW (비밀번호)</label>
+                <md-outlined-text-field type="password" id="userPw" name="userPw" placeholder="PW(비밀번호)를 입력하세요" maxlength="14"></md-outlined-text-field>
+            </div>
+            <b>비밀번호는 8~14자, 알파벳 소문자, 대문자, 숫자, 특수기호를 포함해야 합니다.</b>
+            <div id="userPwConditionCheckSentence"></div>
+            <div>
+                <label for="userPwCheck"><a style="color:red">* </a>PW (비밀번호) 재입력</label>
+                <md-outlined-text-field type="password" id="userPwCheck" name="userPwCheck" placeholder="PW(비밀번호)를 재입력하세요" maxlength="14"></md-outlined-text-field>
+            </div>
+            <div id="userPwCheckSentence"></div>
+            <div>
+                <label for="userEmail"><a style="color:red">* </a>Email (이메일) 입력</label>
+                <md-outlined-text-field type="text" id="userEmail" name="userEmail" placeholder="Email(이메일)을 입력하세요"></md-outlined-text-field>
+            </div>
+            <div></div>
+            <div>
+                <label for="userNickname">닉네임 설정 (선택)</label>
+                <md-outlined-text-field type="text" id="userNickname" name="userNickname" placeholder="닉네임을 입력하세요"></md-outlined-text-field>
+            </div>
+            <!-- disable이 default -->
+            <md-filled-button type="submit" id="signUpBtn" disabled>Sign Up (회원가입)</md-filled-button>
+        </form>
     </div>
 </body>
 </html>

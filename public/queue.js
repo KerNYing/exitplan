@@ -31,7 +31,7 @@ cancelCreateGameRoomBtn.addEventListener('click', () => {
     createGameRoomTab.classList.add('hidden');
 });
 
-async function getOpUserInfo() {
+const getOpUserInfo = async function () {
     try {
         const res = await fetch(`${rootURI}/opUser`, {
             credentials: "same-origin"
@@ -40,11 +40,15 @@ async function getOpUserInfo() {
         if (!res.ok) {
             throw new Error(res.status);
         }
+
         const data = await res.json();
-        myUserName.textContent = data.nickname;
-        myUserRank.textContent = data.rank;
-        myUserRecord.textContent = `승:${data.record[0]} / 패:${data.record[1]} / 무:${data.record[2]}`;
-        console.log(data);
+        const nickname = document.createTextNode(data.nickname);
+        const rank = document.createTextNode(data.rank);
+        const record = document.createTextNode(`승:${data.record[0]} / 패:${data.record[1]} / 무:${data.record[2]}`);
+
+        myUserName.appendChild(nickname);
+        myUserRank.appendChild(rank);
+        myUserRecord.appendChild(record);
     }
     catch (err) {
         console.log("error occurred!:", err);

@@ -1,6 +1,6 @@
 // login 관련 처리 service
 const { signUpUser, signInUser } = require('../services/authService');
-
+const oauth2ReqUrl = require('../middleware/oauth2');
 
 // signup
 exports.signUp = async (req, res) => {
@@ -43,4 +43,10 @@ exports.signIn = async (req, res) => {
   } catch (error) {
     res.status(400).json({ success: false, message: error.message });
   }
+};
+
+// signin with google OAuth 2.0
+exports.signInWithGoogle = async (req, res) => {
+  console.log("oauth: ", oauth2ReqUrl);
+  res.json({oauth2ReqUrl});
 };

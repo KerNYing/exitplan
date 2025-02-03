@@ -6,6 +6,10 @@ const { Server } = require("socket.io");
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
+const path = require('path');
+
+// cors option
+const cors = require('cors');
 
 // key check
 const keyPair = require('./config/keypair');
@@ -21,17 +25,29 @@ const cookieParser = require('cookie-parser');
 // config DB
 const mongoose = require("mongoose");
 const { MongoClient } = require("mongodb");
-const dbschemas = require("./db/dbSchemas")
+const dbschemas = require("./db/dbSchemas");
 
-app.use(express.urlencoded({ extended: true })); // x-www-form-urlencoded 파싱
-app.use(express.json()); // JSON 데이터 파싱
+// cors middleware use
+// app.use(cors({
+//   origin: '*',
+//   methods: '*'
+// }));
+// x-www-form-urlencoded 파싱
+app.use(express.urlencoded({ extended: true })); 
+// JSON 데이터 파싱
+app.use(express.json()); 
+
 
 app.use(cookieParser());
+app.use(express.static("./dist"));
+app.use(generalRouter);
 
 // 정적 파일 제공 (public 폴더)
 app.use(express.static("./public"));
 
-app.use(generalRouter);
+
+
+
 app.use(authRouter);
 
 const uri = "mongodb://mongodb:27017/exitplanDB";

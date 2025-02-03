@@ -145,3 +145,6 @@ dist
 
 # keys for enviroment
 *.key
+
+# env directory
+env

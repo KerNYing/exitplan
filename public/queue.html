@@ -3,74 +3,144 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- favicon -->
+        <link rel="icon" href="./img/favicon/favicon_thegeniusgame.png">
 
         <link rel="stylesheet" href="./queue.css">
-
-        <script src="./queue.js" defer></script>
-
-        <title>Sign Up - Exitplan</title>
+        <title>The Genius Game</title>
     </head>
     <body>
-        <div>Exit plan</div>
+        <div>The Genius Game</div>
         <div class="queueArea">
-            <div class="mainArea elem">
+            <div class="mainArea">
                 <!-- game room list board -->
                 <!-- game room 목록 보여줌 -->
-                <div class="gameRoomArea elem" id="gameRoomListBoard">
-                    <div class="gameRoomHeader elem">
+                <div class="gameRoomArea infoElem" id="gameRoomListBoard">
+                    <md-elevation></md-elevation>
+                    <div class="gameRoomHeader">
                         <div class="subTitle">
                             게임목록    
                         </div>
-                        <div>
-                            방만들기 <button id="createGameRoomBtn">+</button>
+                        <div class="createRoomBtnArea">
+                            방만들기 
+                            <md-icon-button>
+                                <md-icon>add</md-icon>
+                            </md-icon-button>
+                            
+                            <md-elevated-button id="createGameRoomBtn">+</md-elevated-button>
                         </div>
                     </div>
-                    <div class="elem" id="gameRoomList">
-                        gameRooms
+                    <div id="gameRoomList">
                         <div>
-                            game room lists
+                            <div class="clickableElem roomElem">
+                                <md-elevation></md-elevation>
+                                <div>방이름</div>
+                                <div>개설자명</div>  
+                                <div>게임이름</div>
+                                <md-filled-button>게임하기</md-filled-button>
+                                <md-outlined-button>관전하기</md-outlined-button>
+                            </div>
+                            <div class="clickableElem roomElem">
+                                <md-elevation></md-elevation>
+                                <div>방이름</div>
+                                <div>개설자명</div>  
+                                <div>게임이름</div>
+                                <md-filled-button>게임하기</md-filled-button>
+                                <md-outlined-button>관전하기</md-outlined-button>
+                            </div>
+                            <div class="clickableElem roomElem">
+                                <md-elevation></md-elevation>
+                                <div>방이름</div>
+                                <div>개설자명</div>  
+                                <div>게임이름</div>
+                                <md-filled-button>게임하기</md-filled-button>
+                                <md-outlined-button>관전하기</md-outlined-button>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- creating game room -->
                 <!-- game room 만드는 element --> 
-                <div class="gameRoomArea elem hidden" id="createGameRoomTab">
-                    <div class="gameRoomHeader elem">
+                <div class="gameRoomArea infoElem hidden" id="createGameRoomTab">
+                    <md-elevation></md-elevation>
+                    <div class="gameRoomHeader">
                         <div class="subTitle">
                             방만들기
                         </div>
-                        <div>
-                            방만들기 취소<button id="cancelCreateGameRoomBtn">X</button>
+                        <div class="createRoomBtnArea">
+                            방만들기 취소<md-elevated-button id="cancelCreateGameRoomBtn">X</md-elevated-button>
                         </div>
                     </div>
-                    <div class="elem" id="myGameRoomInfo">
-                        My Game Room Info
-                        <div>
-                            <button>방 생성하기</button>
+                    <div class="infoElem" id="myGameRoomInfo">
+                        <md-elevation></md-elevation>
+                        나의 방 정보
+                        <div class="gameRoomInfo">
+                            <div id="gameSelector">
+                                <div class="label">게임</div>
+                                <md-checkbox touch-target="wrapper" checked></md-checkbox> 탈출전략
+                                <md-checkbox touch-target="wrapper" disabled></md-checkbox> 오목 (준비중)
+                                <md-checkbox touch-target="wrapper" disabled></md-checkbox> 체스 (준비중)
+                            </div>
+                            <div id="gameRoomTitle">
+                                <div class="label">방제목</div>
+                                <md-outlined-text-field placeholder="방제목을 설정하세요"></md-outlined-text-field>
+                            </div>
+                            <div id="gameMode">
+                                <div class="label">모드</div>
+                                <md-checkbox touch-target="wrapper" checked></md-checkbox> 오리지널
+                                <md-checkbox touch-target="wrapper" disabled></md-checkbox> 프로 (준비중)
+                            </div>
+                            <div>
+                                <md-checkbox touch-target="wrapper"></md-checkbox> 비밀방
+                                <md-outlined-text-field placeholder="비밀번호를 설정하세요" type="password" disabled></md-outlined-text-field>
+                            </div>
+
+                            <md-filled-tonal-button>방 생성하기</md-filled-tonal-button>
                         </div>
                     </div>
                 </div>
-                <div class="chatLogArea elem">
+                <div class="chatLogArea infoElem">
+                    <md-elevation></md-elevation>
                     chat logs
                     <div class="elem" id="chatLog">chat log</div>
                     <div class="elem" id="chatInput">
-                        chat
-                        <input type="text" placeholder="chat something">
-                        <button>chat!</button>
+                        <md-outlined-text-field id="mainChatInput" placeholder="아무말이나 입력하세요"></md-outlined-text-field>
+                        <md-outlined-button>chat!</md-outlined-button>
                     </div>
                 </div>
             </div>
-            <div class="myInfoArea elem">
-                <div class="myInfo elem">
+            <div class="myInfoArea">
+                <div class="myInfo infoElem">
+                    <md-elevation></md-elevation>
                     my info
-                    <div class="elem" id="myUserName">user name</div>
-                    <div class="elem" id="myUserRank">user rank</div>
-                    <div class="elem" id="myUserRecord">user record</div>
+                    <div class="infoElem" id="myUserName">
+                        <md-elevation></md-elevation>
+                    </div>
+                    <div class="infoElem" id="myUserRank">
+                        <md-elevation></md-elevation>
+                    </div>
+                    <div class="infoElem" id="myUserRecord">
+                        <md-elevation></md-elevation>
+                    </div>
                 </div>
-                <div class="directMatching elem">
+                <div class="directMatching infoElem">
+                    <md-elevation></md-elevation>
                     direct matching
-                    <div class="elem" id="directMatchingBtn">
-                        <button>Direct Match!</button>
+                    <div id="directMatchingBtn">
+                        <div>
+                            <md-checkbox touch-target="wrapper" checked></md-checkbox>
+                            <div style="display: inline;">탈출전략</div>
+                        </div>
+                        <div>
+                            <md-checkbox touch-target="wrapper" disabled></md-checkbox>
+                            <div style="display: inline;">오목 (준비중)</div>
+                        </div>
+                        <div>
+                            <md-checkbox touch-target="wrapper" disabled></md-checkbox>
+                            <div style="display: inline;">체스 (준비중)</div>
+                        </div>
+                        <md-filled-tonal-button id="directMatchBtn">Direct Match!</md-filled-tonal-button>
                     </div>
                 </div>
             </div>

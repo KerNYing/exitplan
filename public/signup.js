@@ -35,8 +35,8 @@ function isValidEmail(str) {
    return emailRegex.test(str);
 }
 
-idConflictCheckBtn.addEventListener('click', () => {
-    fetch(`/userinfo?userId=${encodeURIComponent(userId.value)}`)
+idConflictCheckBtn.addEventListener('click', async () => {
+    await fetch(`/userinfo?userId=${encodeURIComponent(userId.value)}`)
     .then(res => res.json())
     .then(data => {
         if(data.isUserIdRegistered) {

@@ -2,20 +2,20 @@ const path = require('path');
 const { isUserIdRegistered } = require('../services/userService');
 
 exports.home = (req, res) => {
-    res.sendFile(path.join(__dirname, '..', './public/main.html'));
     console.log("main입니다!");
+    res.sendFile(path.join(__dirname, '..', './dist/index.html'));
 };
 
 exports.game = (req, res) => {
-    res.sendFile(path.join(__dirname, '..', './public/game.html'));
+    res.sendFile(path.join(__dirname, '..', './dist/game.html'));
 };
 
 exports.signup = (req, res) => {
-    res.sendFile(path.join(__dirname, '..', './public/signup.html'));
+    res.sendFile(path.join(__dirname, '..', './dist/signup.html'));
 }
 
 exports.queue = (req, res) => {
-    res.sendFile(path.join(__dirname, '..', './public/queue.html'));
+    res.sendFile(path.join(__dirname, '..', './dist/queue.html'));
 }
 
 exports.userinfo = async (req, res) => {
