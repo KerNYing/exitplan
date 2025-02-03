@@ -30,20 +30,25 @@
             <form action="/signin" method="POST">
                 <div>
                     <label for="userId">ID (아이디)</label>
-                    <input type="text" id="userId" name="userId" required><br>
+                    <md-outlined-text-field id="userId" name="userId" label="ID (아이디)" placeholder="아이디를 입력하세요">
+                    </md-outlined-text-field>
+                    
+                    <!-- <input type="text" id="userId" name="userId" required><br> -->
                 </div>
                 <div>
                     <label for="userPw">PW (비밀번호)</label>
-                    <input type="password" id="userPw" name="userPw" required><br>
+                    <md-outlined-text-field id="userPw" name="userPw" label="PW (비밀번호)" type="password" placeholder="비밀번호를 입력하세요">
+                    </md-outlined-text-field>
+                    <!-- <input type="password" id="userPw" name="userPw" required><br> -->
                 </div>
                 
-                <input type="submit" value="Sign In (로그인)">
+                <md-filled-tonal-button type="submit">Sign In (로그인)</md-filled-tonal-button>
             </form>
-            <div class="elem">
-                <div id="signInWithGoogleBtn"><img src="./img/logo_google.png" height="24px"> 구글로 시작하기 </div>
+            <div>
+                <img id="signInWithGoogleBtn" src="./img/icon_signin_google.png" style="height: 60px;">
             </div>
-            <div class="elem">
-                <img src="./img/logo_kakao.png" alt="kakao sign in" style="height: 32px;">
+            <div>
+                <img id="signInWithKakaoBtn" src="./img/icon_signin_kakao.png" alt="kakao sign in" style="height: 60px;">
             </div>
 
             <div id="g_id_onload"

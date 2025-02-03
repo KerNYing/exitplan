@@ -77,3 +77,14 @@ body {
     margin: 5px
 }
 
+.infoElem {
+    position: relative;
+    border-radius: 10px;
+    height: 80px;
+    width: auto;
+    padding: 10px;
+    margin: 10px;
+
+    --md-elevation-level: 1;
+}
+

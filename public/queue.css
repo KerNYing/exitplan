@@ -95,3 +95,32 @@ body {
     flex-grow: 0;
     display: none;
 }
+
+.clickableElem {
+    position: relative;
+    border-radius: 10px;
+    height: 80px;
+    width: auto;
+    padding: 10px;
+    margin: 10px;
+
+    --md-elevation-level: 1;
+  }
+
+.clickableElem:hover {
+    transition-duration: 250ms;
+    transition-timing-function: ease-in-out;
+
+    --md-elevation-level: 3;
+}
+
+.infoElem {
+    position: relative;
+    border-radius: 10px;
+    height: 80px;
+    width: auto;
+    padding: 10px;
+    margin: 10px;
+
+    --md-elevation-level: 1;
+}

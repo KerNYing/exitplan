@@ -3,17 +3,17 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- favicon -->
+        <link rel="icon" href="./img/favicon/favicon_thegeniusgame.png">
 
         <link rel="stylesheet" href="./queue.css">
-
-        <script src="./queue.js" defer></script>
-
-        <title>Sign Up - Exitplan</title>
+        <title>The Genius Game</title>
     </head>
     <body>
-        <div>Exit plan</div>
+        <div>The Genius Game</div>
         <div class="queueArea">
-            <div class="mainArea elem">
+            <div class="mainArea">
                 <!-- game room list board -->
                 <!-- game room 목록 보여줌 -->
                 <div class="gameRoomArea elem" id="gameRoomListBoard">
@@ -22,13 +22,20 @@
                             게임목록    
                         </div>
                         <div>
-                            방만들기 <button id="createGameRoomBtn">+</button>
+                            방만들기 
+                            <md-elevated-button id="createGameRoomBtn">+</md-elevated-button>
                         </div>
                     </div>
-                    <div class="elem" id="gameRoomList">
-                        gameRooms
+                    <div id="gameRoomList">
                         <div>
-                            game room lists
+                            <div class="clickableElem">
+                                <md-elevation></md-elevation>
+                                room1
+                            </div>
+                            <div class="clickableElem">
+                                <md-elevation></md-elevation>
+                                room2
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -40,13 +47,32 @@
                             방만들기
                         </div>
                         <div>
-                            방만들기 취소<button id="cancelCreateGameRoomBtn">X</button>
+                            방만들기 취소<md-elevated-button id="cancelCreateGameRoomBtn">X</md-elevated-button>
                         </div>
                     </div>
-                    <div class="elem" id="myGameRoomInfo">
+                    <div class="infoElem" id="myGameRoomInfo">
+                        <md-elevation></md-elevation>
                         My Game Room Info
                         <div>
-                            <button>방 생성하기</button>
+                            <div>
+                                게임
+                                <md-checkbox touch-target="wrapper" checked></md-checkbox> 탈출전략
+                                <md-checkbox touch-target="wrapper" disabled></md-checkbox> 오목 (준비중)
+                                <md-checkbox touch-target="wrapper" disabled></md-checkbox> 체스 (준비중)
+                            </div>
+                            <div>
+                                방제목
+                                <md-outlined-text-field placeholder="방제목을 설정하세요"></md-outlined-text-field>
+                            </div>
+                            <div>
+                                모드
+                            </div>
+                            <div>
+                                <md-checkbox touch-target="wrapper"></md-checkbox> 비밀방
+                                <md-outlined-text-field placeholder="비밀번호를 설정하세요" type="password" disabled></md-outlined-text-field>
+                            </div>
+
+                            <md-filled-tonal-button>방 생성하기</md-filled-tonal-button>
                         </div>
                     </div>
                 </div>
@@ -55,22 +81,39 @@
                     <div class="elem" id="chatLog">chat log</div>
                     <div class="elem" id="chatInput">
                         chat
-                        <input type="text" placeholder="chat something">
-                        <button>chat!</button>
+                        <md-outlined-text-field placeholder="아무말이나 입력하세요"></md-outlined-text-field>
+                        <md-outlined-button>chat!</md-outlined-button>
                     </div>
                 </div>
             </div>
             <div class="myInfoArea elem">
                 <div class="myInfo elem">
                     my info
-                    <div class="elem" id="myUserName">user name</div>
-                    <div class="elem" id="myUserRank">user rank</div>
-                    <div class="elem" id="myUserRecord">user record</div>
+                    <div class="infoElem" id="myUserName">
+                        <md-elevation></md-elevation>
+                    </div>
+                    <div class="infoElem" id="myUserRank">
+                        <md-elevation></md-elevation>
+                    </div>
+                    <div class="infoElem" id="myUserRecord">
+                        <md-elevation></md-elevation>
+                    </div>
                 </div>
                 <div class="directMatching elem">
                     direct matching
                     <div class="elem" id="directMatchingBtn">
-                        <button>Direct Match!</button>
+                        <md-menu id="gameMenu" anchor="directMatchBtn">
+                            <md-menu-item>
+                              <div slot="headline">ExitPlan</div>
+                            </md-menu-item>
+                            <md-menu-item>
+                              <div slot="headline">Go</div>
+                            </md-menu-item>
+                            <md-menu-item>
+                              <div slot="headline">Chess</div>
+                            </md-menu-item>
+                        </md-menu>
+                        <md-filled-tonal-button id="directMatchBtn">Direct Match!</md-filled-tonal-button>
                     </div>
                 </div>
             </div>

@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- favicon -->
+    <link rel="icon" href="./img/favicon/favicon_thegeniusgame.png">
+            
     <!-- 최상단에 위치해야함 -->
     <link rel="stylesheet" href="./game.css"></style>
     <script src="./game.js" defer></script>
@@ -23,16 +26,37 @@
         <div class="userInfoArea">
             <div class="elem" id="opponentUserInfo">
                 opponent info
-                <div class="elem" id="opUserName">user name</div>
-                <div class="elem" id="opUserRank">user rank</div>
-                <div class="elem" id="opUserRecord">user record</div>
-                <div class="elem" id="addUser">add user<button>add user</button></div>
+                <div class="infoElem" id="opUserName">
+                    <md-elevation></md-elevation>
+                    user name
+                </div>
+                <div class="infoElem" id="opUserRank">
+                    <md-elevation></md-elevation>
+                    user rank
+                </div>
+                <div class="infoElem" id="opUserRecord">
+                    <md-elevation></md-elevation>
+                    user record
+                </div>
+                <div class="infoElem" id="addUser">
+                    <md-elevation></md-elevation>
+                    add user<md-filled-button>add user</md-filled-button>
+                </div>
             </div>
             <div class="elem" id="myUserInfo">
                 my info
-                <div class="elem" id="myUserName">user name</div>
-                <div class="elem" id="myUserRank">user rank</div>
-                <div class="elem" id="myUserRecord">user record</div>
+                <div class="infoElem" id="myUserName">
+                    <md-elevation></md-elevation>
+                    myUserName
+                </div>
+                <div class="infoElem" id="myUserRank">
+                    <md-elevation></md-elevation>
+                    myUserRank
+                </div>
+                <div class="infoElem" id="myUserRecord">
+                    <md-elevation></md-elevation>
+                    myUserRecord
+                </div>
             </div>
         </div>
         <div class="gameArea">game area
@@ -40,7 +64,8 @@
         </div>
         <div class="gameInfoArea">
             <div class="elem" id="gameInfo">game info
-                <div class="turnInfoArea elem">
+                <div class="infoElem" id="turnInfoArea">
+                    <md-elevation></md-elevation>
                     <div>
                         Turn
                     </div>
@@ -48,7 +73,8 @@
                         Color noted
                     </div>
                 </div>
-                <div class="gameInfoArea elem">
+                <div class="infoElem" id="gameInfoArea">
+                    <md-elevation></md-elevation>
                     <div>
                         Score
                     </div>
@@ -56,7 +82,8 @@
                         0 : 0
                     </div>
                 </div>
-                <div class="remainTime elem">
+                <div class="infoElem" id="remainTime">
+                    <md-elevation></md-elevation>
                     <div>
                         Remain Time
                     </div>
@@ -70,8 +97,8 @@
                 <div class="elem" id="chatLog">chat log</div>
                 <div class="elem" id="chatInput">
                     chat
-                    <input type="text" placeholder="chat something">
-                    <button>chat!</button>
+                    <md-outlined-text-field placeholder="아무말이나 입력하세요"></md-outlined-text-field>
+                    <md-outlined-button>chat!</md-outlined-button>
                 </div>
             </div>
         </div>

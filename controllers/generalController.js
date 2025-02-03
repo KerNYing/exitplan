@@ -7,15 +7,15 @@ exports.home = (req, res) => {
 };
 
 exports.game = (req, res) => {
-    res.sendFile(path.join(__dirname, '..', './public/game.html'));
+    res.sendFile(path.join(__dirname, '..', './dist/game.html'));
 };
 
 exports.signup = (req, res) => {
-    res.sendFile(path.join(__dirname, '..', './public/signup.html'));
+    res.sendFile(path.join(__dirname, '..', './dist/signup.html'));
 }
 
 exports.queue = (req, res) => {
-    res.sendFile(path.join(__dirname, '..', './public/queue.html'));
+    res.sendFile(path.join(__dirname, '..', './dist/queue.html'));
 }
 
 exports.userinfo = async (req, res) => {

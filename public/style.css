@@ -108,6 +108,10 @@ form div input {
     flex: 1 1;
 }
 
+md-outlined-text-field {
+    flex: 1;
+}
+
 button {
     width: 100%;
 }
@@ -121,15 +125,23 @@ input {
     height: 20px;
 }
 
-#signInWithGoogleBtn {
+/* #signInWithGoogleBtn {
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 
 
 @media only screen and (max-width: 768px) {
     body {
         width: 100%
     }
+}
+
+#signInWithGoogleBtn:hover {
+    filter: brightness(0.9);
+}
+
+#signInWithKakaoBtn:hover {
+    filter: brightness(0.9);
 }
