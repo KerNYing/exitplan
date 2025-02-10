@@ -1,5 +1,4 @@
 name: exitplan
-version: '3.8'
 
 services:
   nodejs:
