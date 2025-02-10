@@ -1,19 +1,22 @@
-name: exitplan
-version: '3.8'
+# project name: the genius game
+name: thegeniusgame
 
 services:
   nodejs:
-    image: node:latest
+    image: node:22
     container_name: nodejs-server
     working_dir: /usr/src/app
     volumes:
       - .:/usr/src/app
       - /usr/src/app/node_modules
+    # 80번 포트에서 서비스 
     ports:
       - "80:80"
     command: sh -c "npm install && nodemon server.js"
     depends_on:
-      - mongodb
+      # mongodb health check 후 실행
+      mongodb:
+        condition: service_healthy
     environment:
       - NODE_ENV=development
       - MONGO_URI=mongodb://mongodb:27017/exitplan
@@ -23,6 +26,13 @@ services:
     container_name: mongodb
     ports:
       - "27017:27017"
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.runCommand('ping')"]
+      # 5초마다 실행
+      interval: 5s
+      timeout: 5s
+      # 5회 반복
+      retries: 5
     volumes:
       - mongodb_data:/data/db
 
