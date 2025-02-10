@@ -13,7 +13,8 @@ services:
       - "80:80"
     command: sh -c "npm install && nodemon server.js"
     depends_on:
-      - mongodb
+      - mongodb:
+        condition: service_healthy
     environment:
       - NODE_ENV=development
       - MONGO_URI=mongodb://mongodb:27017/exitplan
