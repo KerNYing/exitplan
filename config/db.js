@@ -1,7 +1,7 @@
 // db.js
 const { MongoClient } = require("mongodb");
 
-const uri = "mongodb://mongodb:27017/exitplanDB";
+const uri = "근ㄷ";
 let client;
 let db;
 

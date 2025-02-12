@@ -29,7 +29,10 @@ const LoginInfo = mongoose.model("LoginInfo", loginInfoSchema);
 // game information schema
 const gameInfoSchema = new Schema({
   gameId: { type: String, required: true },
+  gameName: { type: String , required: true },
+  roomName: { type: String, required: true },
   userIds: { type: [String], required: true },
+  viewerIds: { type: [String] },
   score: { type: [Number], default: [0, 0] },
   playTime: { type: Number, default: 0 },
   playTimeAt: { type: Date, required: true }
@@ -39,7 +42,12 @@ const GameInfo = mongoose.model("GameInfo", gameInfoSchema);
 
 // queue information schema
 const queueInfoSchema = new Schema({
-  gameId: { type: String }
+  gameId: { type: String, required: true },
+  gameName: { type: String , required: true },
+  roomName: { type: String, require: true },
+  isHiddenRoom: { type: Boolean, required: true, default: false},
+  playerNum: { type: Number, required: true },
+  viewerNum: { type: Number, required: true }
 });
 
 const QueueInfo = mongoose.model("QueueInfo", queueInfoSchema);

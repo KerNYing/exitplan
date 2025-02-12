@@ -31,7 +31,7 @@ cancelCreateGameRoomBtn.addEventListener('click', () => {
     createGameRoomTab.classList.add('hidden');
 });
 
-const getOpUserInfo = async function () {
+const getMyInfo = async function () {
     try {
         const res = await fetch(`${rootURI}/opUser`, {
             credentials: "same-origin"
@@ -55,4 +55,4 @@ const getOpUserInfo = async function () {
     }
 }
 
-getOpUserInfo();
+getMyInfo();
