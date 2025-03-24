@@ -31,26 +31,35 @@ const gameInfoSchema = new Schema({
   gameId: { type: String, required: true },
   gameName: { type: String , required: true },
   roomName: { type: String, required: true },
+  ownerId: { type: String, require: true },
+  isHiddenRoom: { type: Boolean, required: true, default: false},
+  hiddenRoomPw: { type: String },
+  gameMode: { type: String },
   userIds: { type: [String], required: true },
   viewerIds: { type: [String] },
   score: { type: [Number], default: [0, 0] },
+  playerNum: { type: Number, required: true },
+  viewerNum: { type: Number, required: true },
   playTime: { type: Number, default: 0 },
   playTimeAt: { type: Date, required: true }
 });
 
 const GameInfo = mongoose.model("GameInfo", gameInfoSchema);
 
-// queue information schema
-const queueInfoSchema = new Schema({
-  gameId: { type: String, required: true },
-  gameName: { type: String , required: true },
-  roomName: { type: String, require: true },
-  isHiddenRoom: { type: Boolean, required: true, default: false},
-  playerNum: { type: Number, required: true },
-  viewerNum: { type: Number, required: true }
-});
+// QueueInfo was merged with GameInfo schema
+// 
+// // queue information schema
+// const queueInfoSchema = new Schema({
+//   gameId: { type: String, required: true },
+//   gameName: { type: String , required: true },
+//   roomName: { type: String, require: true },
+//   ownerId: { type: String, require: true },
+//   isHiddenRoom: { type: Boolean, required: true, default: false},
+//   playerNum: { type: Number, required: true },
+//   viewerNum: { type: Number, required: true }
+// });
 
-const QueueInfo = mongoose.model("QueueInfo", queueInfoSchema);
+// const QueueInfo = mongoose.model("QueueInfo", queueInfoSchema);
 
 // chat log information schema
 const chatInfoSchema = new Schema({
@@ -67,6 +76,6 @@ module.exports = {
   UserInfo,
   LoginInfo,
   GameInfo,
-  QueueInfo,
+  // QueueInfo,
   ChatInfo
 };

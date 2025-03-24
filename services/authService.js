@@ -109,7 +109,7 @@ const signInUser = async (userId, userPw) => {
   }
   else {
     // password 불일치
-    return { status: false, username: userId};
+    return { status: 'fail', username: userId};
   }
 };
 
