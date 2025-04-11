@@ -14,7 +14,9 @@ const userInfoSchema = new Schema({
   // 3 types for login
   // local or google or kakao
   provider: { type: [String], required: true },
-  providerId: { type: String, default: "" }
+  providerId: { type: String, default: "" },
+  country: { type: String, default: "KR"},
+  point: { type: Number, default: 0}
 });
 
 const UserInfo = mongoose.model("UserInfo", userInfoSchema);
@@ -41,7 +43,8 @@ const gameInfoSchema = new Schema({
   playerNum: { type: Number, required: true },
   viewerNum: { type: Number, required: true },
   playTime: { type: Number, default: 0 },
-  playTimeAt: { type: Date, required: true }
+  playTimeAt: { type: Date, required: true },
+  createdAt: { type: Date }
 });
 
 const GameInfo = mongoose.model("GameInfo", gameInfoSchema);
