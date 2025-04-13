@@ -1,0 +1,9 @@
+.vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#loginMonkey {
+    width: 500px;
+}

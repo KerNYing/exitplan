@@ -7,16 +7,18 @@ const { connectDB, getDB } = require("../config/db");
 
 // 게임방 조회
 // 대략적인 정보 반환
-const getRoomSurInfo = async () => {
+const getRoomInfo = async () => {
     try {
         // DB 객체 받아옮
         await connectDB();
         const database = getDB();
         // queueInfo에 대한 colleciton 설정
-        const queueInfo = database.collection("QueueInfo");
-        // const result = await queueInfo.
-
-
+        const gameInfo = database.collection("gameinfos");
+        
+        const result = await gameInfo.find().toArray(); // toarray로 수정
+        
+        console.log("result : ", result);
+        return result;
     } catch (error) {
         console.log("fun: getRoomInfo error occurred: "+error.message);
     }
@@ -50,4 +52,4 @@ const createRoom = async (gameName, roomName, isHiddenRoom, ownerId) => {
     }
 }
 
-module.exports = { getRoomSurInfo, createRoom };
+module.exports = { getRoomInfo, createRoom };

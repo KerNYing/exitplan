@@ -1,7 +1,6 @@
-import GameInfo from "../models/gameInfo";
+const GameInfo = require('../models/gameInfo');
 
-const path = require('path');
-// const {  } = require('../services/gameService');
+const { getRoomInfo } = require('../services/gameService');
 
 // jwt module
 const jwt = require('jsonwebtoken');
@@ -15,7 +14,7 @@ const privateKeyPath = path.join(__dirname,'..','/env/private.key');
 // privatekey fs object
 const privateKey = fs.readFileSync(privateKeyPath, 'utf8');
 
-// 
+
 exports.insertGameRoom = async (req, res) => {
     try {
         // ownerId 획득
@@ -42,7 +41,7 @@ exports.insertGameRoom = async (req, res) => {
         const result = await insertGameInfo(gameInfo);
 
         // 정상적으로 게임방 정보가 등록된 경우
-        if (result.status === "sucess") {
+        if (result.status === "success") {
             // gameId를 기준으로 게임방 찾아들어가기
             // gameId를 쿼리로 /game에 진입
             res.redirect(`/game?gameId=${gameInfo._gameId}`);
@@ -54,4 +53,17 @@ exports.insertGameRoom = async (req, res) => {
     catch (err) {
         console.log("err gameController.insertGameRoom")
     }
+};
+
+exports.getGameRooms = async (req, res) => {
+    // qeury에서 game room id 가져오기
+    // let gameId = req.query.gameId;
+
+    // game room id 를 통해 방목록 요청하기
+    let result = await getRoomInfo();
+
+    console.log("getGameRooms: ", result);
+
+    res.json(result);
+    // res.json({ result: "success"});
 };

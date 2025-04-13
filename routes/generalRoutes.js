@@ -24,4 +24,7 @@ router.get("/opUser", checkToken, userController.opUser);
 router.get("/queue", checkToken, generalController.queue);
 router.get("/userinfo/", checkToken, generalController.userinfo);
 
+//
+router.get("/loginNeeded", generalController.loginNeeded);
+
 module.exports = router;

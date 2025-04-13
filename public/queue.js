@@ -35,6 +35,44 @@ const hiddenRoomPassword = document.getElementById("hiddenRoomPassword");
 // 방 생성하기 버튼
 const insertGameRoomBtn = document.getElementById("insertGameRoomBtn");
 
+// 게임룸 리스트
+const gameRoomList = document.getElementById("gameRoomList");
+// 게임룸 템플릿
+const template = document.getElementById("roomTemplate");
+
+const getGameRoomList = async function () {
+    try {
+        const res = await fetch(`${rootURI}/gameRoom`);
+
+        if (!res.ok) {
+            throw new Error(res.status);
+        }
+
+        const data = await res.json();
+        console.log(data);
+        data.forEach(room => {
+            const clone =template.content.cloneNode(true);
+
+            clone.querySelector(".roomName").textContent += room.roomName;
+            clone.querySelector(".ownerId").textContent += room.ownerId;
+            clone.querySelector(".gameName").textContent += room.gameName;
+            // 유저수를 분자, 분모를 최대유저(2명 고정)으로 설정
+            clone.querySelector(".userNum").textContent += `${room.userIds.length}/2`;
+
+            clone.querySelector(".joinBtn").addEventListener("click", () => {
+                window.location.href = `/game?gameId=${room._id}`;
+            });
+
+            gameRoomList.appendChild(clone);
+        });
+    }
+    catch (err) {
+        console.log("error occurred!", err);
+    }
+};
+
+getGameRoomList();
+
 // 방만들기 클릭
 createGameRoomBtn.addEventListener('click', () => {
     gameRoomListBoard.classList.add('hidden');

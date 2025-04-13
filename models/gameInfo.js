@@ -1,11 +1,11 @@
-import crypto from 'crypto';
+const crypto = require("crypto");
 
 function generateHashGameId(ownerId) {
     const data = `${ownerId}-${Date.now()}`;
     return crypto.createHash('sha256').update(data).digest('hex').substring(0, 10);
 }
 
-export default class GameInfo {
+class GameInfo {
     constructor(gameName, roomName, ownerId, isHiddenRoom, hiddenRoomPw, gameMode) {
         this._gameName = gameName;
         this._roomName = roomName;
@@ -42,3 +42,5 @@ export default class GameInfo {
         };
     }
 }
+
+module.exports = GameInfo;
