@@ -14,7 +14,9 @@ const userInfoSchema = new Schema({
   // 3 types for login
   // local or google or kakao
   provider: { type: [String], required: true },
-  providerId: { type: String, default: "" }
+  providerId: { type: String, default: "" },
+  country: { type: String, default: "KR"},
+  point: { type: Number, default: 0}
 });
 
 const UserInfo = mongoose.model("UserInfo", userInfoSchema);
@@ -29,20 +31,38 @@ const LoginInfo = mongoose.model("LoginInfo", loginInfoSchema);
 // game information schema
 const gameInfoSchema = new Schema({
   gameId: { type: String, required: true },
+  gameName: { type: String , required: true },
+  roomName: { type: String, required: true },
+  ownerId: { type: String, require: true },
+  isHiddenRoom: { type: Boolean, required: true, default: false},
+  hiddenRoomPw: { type: String },
+  gameMode: { type: String },
   userIds: { type: [String], required: true },
+  viewerIds: { type: [String] },
   score: { type: [Number], default: [0, 0] },
+  playerNum: { type: Number, required: true },
+  viewerNum: { type: Number, required: true },
   playTime: { type: Number, default: 0 },
-  playTimeAt: { type: Date, required: true }
+  playTimeAt: { type: Date, required: true },
+  createdAt: { type: Date }
 });
 
 const GameInfo = mongoose.model("GameInfo", gameInfoSchema);
 
-// queue information schema
-const queueInfoSchema = new Schema({
-  gameId: { type: String }
-});
+// QueueInfo was merged with GameInfo schema
+// 
+// // queue information schema
+// const queueInfoSchema = new Schema({
+//   gameId: { type: String, required: true },
+//   gameName: { type: String , required: true },
+//   roomName: { type: String, require: true },
+//   ownerId: { type: String, require: true },
+//   isHiddenRoom: { type: Boolean, required: true, default: false},
+//   playerNum: { type: Number, required: true },
+//   viewerNum: { type: Number, required: true }
+// });
 
-const QueueInfo = mongoose.model("QueueInfo", queueInfoSchema);
+// const QueueInfo = mongoose.model("QueueInfo", queueInfoSchema);
 
 // chat log information schema
 const chatInfoSchema = new Schema({
@@ -59,6 +79,6 @@ module.exports = {
   UserInfo,
   LoginInfo,
   GameInfo,
-  QueueInfo,
+  // QueueInfo,
   ChatInfo
 };

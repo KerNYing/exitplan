@@ -17,6 +17,7 @@ const keyPair = require('./config/keypair');
 // router 연결
 const generalRouter = require("./routes/generalRoutes");
 const authRouter = require("./routes/authRoutes");
+const gameRouter = require("./routes/gameRoutes");
 
 // cookie 관련
 const cookieParser = require('cookie-parser');
@@ -37,18 +38,18 @@ app.use(express.urlencoded({ extended: true }));
 // JSON 데이터 파싱
 app.use(express.json()); 
 
-
 app.use(cookieParser());
 app.use(express.static("./dist"));
+
+// routing
 app.use(generalRouter);
+app.use(authRouter);
+app.use(gameRouter);
 
 // 정적 파일 제공 (public 폴더)
 app.use(express.static("./public"));
 
 
-
-
-app.use(authRouter);
 
 const uri = "mongodb://mongodb:27017/exitplanDB";
 const client = new MongoClient(uri);

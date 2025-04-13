@@ -35,10 +35,11 @@ exports.signIn = async (req, res) => {
         maxAge: 1000 * 60 * 60,
       })
       // login 성공 시 /queue page로 이동
-      .redirect('/queue');
+      .redirect("/queue");
     }
     else {
-      res.json({ success: false, message: "로그인 성공", data: result });
+      res.json({ success: false, message: "로그인 실패", data: result })
+      .redirect("/");
     }
   } catch (error) {
     res.status(400).json({ success: false, message: error.message });

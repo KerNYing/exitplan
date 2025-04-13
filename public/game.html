@@ -9,10 +9,13 @@
             
     <!-- 최상단에 위치해야함 -->
     <link rel="stylesheet" href="./game.css"></style>
-    <script src="./game.js" defer></script>
-    <script src="./game_logic.js" defer></script>
+    <!-- <script src="./game.js" defer></script>
+    <script src="./game_logic.js" defer></script> -->
     <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
 
+    <!-- channel talk 상담 -->
+    <script src="./js/channelTalkIo.js"></script>
+        
     <title>The Genius Game</title>
 </head>
 <body>
@@ -44,22 +47,29 @@
                 my info
                 <div class="infoElem" id="myUserName">
                     <md-elevation></md-elevation>
-                    myUserName
+                    
                 </div>
                 <div class="infoElem" id="myUserRank">
                     <md-elevation></md-elevation>
-                    myUserRank
+                    
                 </div>
                 <div class="infoElem" id="myUserRecord">
                     <md-elevation></md-elevation>
-                    myUserRecord
+                    
                 </div>
             </div>
         </div>
-        <div class="gameArea infoElem">
-            <md-elevation></md-elevation>
-            game area
-            <!-- <canvas id="gameCanvas" width="490" height="490"></canvas> -->
+        <div>
+            <div class="gameArea infoElem">
+                <md-elevation></md-elevation>
+                game area
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+            </div>              
+            <div>
+                <canvas id="board" width="600" height="600" style="border: 1px solid #ccc;background: url('./img/game/img_omok_bg.png')"></canvas>
+            </div>
         </div>
         <div class="gameInfoArea">
             <div class="infoElem" id="gameInfo">

@@ -18,6 +18,60 @@ const myUserRank = document.getElementById("myUserRank");
 // user 전적
 const myUserRecord = document.getElementById("myUserRecord");
 
+// 방만들기 관련 변수
+// exitplan check 여부
+const exitPlanCheckBox = document.getElementById("exitPlanCheckbox");
+// 방제목
+const roomName = document.getElementById("roomName");
+// 모드
+// 오리지널 모드
+const originalModeCheckbox = document.getElementById("originalModeCheckbox");
+// 프로 모드
+const hardModeCheckbox = document.getElementById("hardModeCheckbox");
+// 비밀방여부
+const isHiddenRoomBtn = document.getElementById("isHiddenRoomBtn");
+// 비밀번호
+const hiddenRoomPassword = document.getElementById("hiddenRoomPassword");
+// 방 생성하기 버튼
+const insertGameRoomBtn = document.getElementById("insertGameRoomBtn");
+
+// 게임룸 리스트
+const gameRoomList = document.getElementById("gameRoomList");
+// 게임룸 템플릿
+const template = document.getElementById("roomTemplate");
+
+const getGameRoomList = async function () {
+    try {
+        const res = await fetch(`${rootURI}/gameRoom`);
+
+        if (!res.ok) {
+            throw new Error(res.status);
+        }
+
+        const data = await res.json();
+        console.log(data);
+        data.forEach(room => {
+            const clone =template.content.cloneNode(true);
+
+            clone.querySelector(".roomName").textContent += room.roomName;
+            clone.querySelector(".ownerId").textContent += room.ownerId;
+            clone.querySelector(".gameName").textContent += room.gameName;
+            // 유저수를 분자, 분모를 최대유저(2명 고정)으로 설정
+            clone.querySelector(".userNum").textContent += `${room.userIds.length}/2`;
+
+            clone.querySelector(".joinBtn").addEventListener("click", () => {
+                window.location.href = `/game?gameId=${room._id}`;
+            });
+
+            gameRoomList.appendChild(clone);
+        });
+    }
+    catch (err) {
+        console.log("error occurred!", err);
+    }
+};
+
+getGameRoomList();
 
 // 방만들기 클릭
 createGameRoomBtn.addEventListener('click', () => {
@@ -31,7 +85,7 @@ cancelCreateGameRoomBtn.addEventListener('click', () => {
     createGameRoomTab.classList.add('hidden');
 });
 
-const getOpUserInfo = async function () {
+const getMyInfo = async function () {
     try {
         const res = await fetch(`${rootURI}/opUser`, {
             credentials: "same-origin"
@@ -55,4 +109,35 @@ const getOpUserInfo = async function () {
     }
 }
 
-getOpUserInfo();
+getMyInfo();
+
+// game room 생성 시 각 항목 유효성 검증
+const validateCreateRoom = function validateCreateRoom () {
+    console.log("test: "+roomName.value);
+    // 방제목 0자인지 확인
+    if (roomName.value.length === 0) {
+        alert("방제목을 입력하세요!");
+        console.log("방제목 없음");
+        return false;
+    }
+    // 방제목 20자인지 검증
+    if (roomName.value.length > 20) {
+        alert("방제목은 20자를 초과할 수 없습니다!");
+        console.log("방제목 20자 초과");
+        return false; 
+    }
+
+    // 검증사항이 다 확인된 경우 true 반환
+    return true;
+};
+
+// game room 생성
+const insertGameRoom = function () {
+    validateCreateRoom();
+};
+
+// 게임방 생성 클릭
+insertGameRoomBtn.addEventListener('click', (e) => {
+    // 유효하지 않은 경우 이벤트 중단
+    if (insertGameRoom()) return;
+});

@@ -30,3 +30,7 @@ exports.userinfo = async (req, res) => {
         res.json({ isUserIdRegistered: false });
     }
 }
+
+exports.loginNeeded = (req, res) => {
+    res.sendFile(path.join(__dirname, '..', './dist/loginNeeded.html'));
+}

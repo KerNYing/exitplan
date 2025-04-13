@@ -84,3 +84,25 @@ body {
     --md-elevation-level: 1;
 }
 
+.progress-container {
+    width: 100%;
+    height: 12px;
+    background: #eee;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background: #4caf50;
+    width: 0%;
+  }
+
+  .fill {
+    animation: fill 30s linear forwards;
+  }
+
+  @keyframes fill {
+    from { width: 0%; }
+    to { width: 100%; }
+  }
