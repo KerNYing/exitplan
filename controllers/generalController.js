@@ -34,3 +34,7 @@ exports.userinfo = async (req, res) => {
 exports.loginNeeded = (req, res) => {
     res.sendFile(path.join(__dirname, '..', './dist/loginNeeded.html'));
 }
+
+exports.loginFailed = (req, res) => {
+    res.sendFile(path.join(__dirname, '..', './dist/loginFailed.html'));
+}

@@ -24,7 +24,9 @@ router.get("/opUser", checkToken, userController.opUser);
 router.get("/queue", checkToken, generalController.queue);
 router.get("/userinfo/", generalController.userinfo);
 
-//
+// case: token is over
 router.get("/loginNeeded", generalController.loginNeeded);
+// case: login failed
+router.get("/loginFailed", generalController.loginFailed);
 
 module.exports = router;

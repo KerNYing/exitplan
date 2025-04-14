@@ -38,11 +38,10 @@ exports.signIn = async (req, res) => {
       .redirect("/queue");
     }
     else {
-      res.json({ success: false, message: "로그인 실패", data: result })
-      .redirect("/");
+      res.redirect("/loginFailed");
     }
   } catch (error) {
-    res.status(400).json({ success: false, message: error.message });
+    res.status(400).redirect("/loginFailed");
   }
 };
 
