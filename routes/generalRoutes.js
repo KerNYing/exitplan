@@ -22,7 +22,7 @@ router.get("/signup", generalController.signup);
 router.get("/game", checkToken, generalController.game);
 router.get("/opUser", checkToken, userController.opUser);
 router.get("/queue", checkToken, generalController.queue);
-router.get("/userinfo/", checkToken, generalController.userinfo);
+router.get("/userinfo/", generalController.userinfo);
 
 //
 router.get("/loginNeeded", generalController.loginNeeded);
